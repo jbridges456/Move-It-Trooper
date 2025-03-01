@@ -27,61 +27,64 @@ public class PlayerController : Controller
     // Update is called once per frame
     public override void Update()
     {
-     MakeDecisions ();
- 
+        MakeDecisions();
+
     }
     public void MakeDecisions()
     {
-        bool useturbo = Input.GetKey(leftshift) || Input.GetKey(rightshift);
-        if (Input.GetKey(moveForward))
+        if (pawn != null)
         {
-            pawn.moverelative(Vector2.up, useturbo);
-           
-        }
+            bool useturbo = Input.GetKey(leftshift) || Input.GetKey(rightshift);
+            if (Input.GetKey(moveForward))
+            {
+                pawn.moverelative(Vector2.up, useturbo);
 
-        if (Input.GetKey(moveBackward))
-        {
-            pawn.moverelative(-Vector2.up, useturbo);
-            
-        }
+            }
 
-        if (Input.GetKey(rotateClockwise))
-        {
-            pawn.moverelative(Vector2.left, useturbo);
-          
-        }
+            if (Input.GetKey(moveBackward))
+            {
+                pawn.moverelative(-Vector2.up, useturbo);
 
-        if (Input.GetKey(rotateCounterclockwise))
-        {
-            pawn.moverelative(Vector2.right, useturbo);
-            
-        }
-        if (Input.GetKeyDown(up))
-        {
-            pawn.Move(Vector2.up);
+            }
 
-        }
+            if (Input.GetKey(rotateClockwise))
+            {
+                pawn.moverelative(Vector2.left, useturbo);
 
-        if (Input.GetKeyDown(down))
-        {
-            pawn.Move(Vector2.down);
+            }
 
-        }
+            if (Input.GetKey(rotateCounterclockwise))
+            {
+                pawn.moverelative(Vector2.right, useturbo);
 
-        if (Input.GetKeyDown(right))
-        {
-            pawn.Move(Vector2.right);
+            }
+            if (Input.GetKeyDown(up))
+            {
+                pawn.Move(Vector2.up);
 
-        }
+            }
 
-        if (Input.GetKeyDown(left))
-        {
-            pawn.Move(Vector2.left);
+            if (Input.GetKeyDown(down))
+            {
+                pawn.Move(Vector2.down);
 
-        }
+            }
+
+            if (Input.GetKeyDown(right))
+            {
+                pawn.Move(Vector2.right);
+
+            }
+
+            if (Input.GetKeyDown(left))
+            {
+                pawn.Move(Vector2.left);
+
+            }
             if (Input.GetKeyDown(teleport))
-        {
-            pawn.teleport();
+            {
+                pawn.teleport();
+            }
         }
     }
 }
